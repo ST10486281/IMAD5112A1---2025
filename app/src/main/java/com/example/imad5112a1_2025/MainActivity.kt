@@ -16,16 +16,44 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.textView)
         val editTextText = findViewById<EditText>(R.id.editTextText)
         val button = findViewById<Button>(R.id.button)
+        val button2 = findViewById<Button>(R.id.button2)
 
 
 
 
         button?.setOnClickListener {
-            var greeting: String = ""
+
+            val string = editTextText.text.toString()
+
+            var result: String = ""
 
 
-            greeting = "Welcome, ${editTextText.text}"
-            textView.text = greeting
+
+
+
+            if(string == "morning"){
+                result = "Eggs"
+            } else if(string == "mid-morning") {
+                result = "Fruit"
+            } else if(string == "afternoon") {
+                result = "Sandwich"
+            } else if(string == "mid-afternoon") {
+                result = "Cake"
+            } else if(string == "dinner") {
+                result = "Pasta"
+            } else {
+                result = "Please enter a valid time."
+            }
+
+            textView.text = result
+
+
+        }
+
+
+        button2?.setOnClickListener {
+
+            textView.text = "Enter time to see suggestion"
 
         }
     }
