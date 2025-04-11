@@ -2,6 +2,7 @@ package com.example.imad5112a1_2025
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         // Set what happens when the "suggestion" button is clicked
         button?.setOnClickListener {
             val string = editTextText.text.toString()  // Get user input from EditText
+            Log.d("Input", string)
+
             var result: String = ""                    // Initialize result string
 
             // Determine suggestion based on input time
@@ -37,12 +40,15 @@ class MainActivity : AppCompatActivity() {
                 result = "Please enter a valid option."  // Default message for invalid input
             }
 
+            Log.d("Result", result)
+
             textView.text = result  // Show the result in the TextView
         }
 
         // Set what happens when the "reset" button is clicked
         button2?.setOnClickListener {
             textView.text = "Enter time to see suggestion"  // Reset TextView message
+            Log.d("Text reset to default message", "")
         }
     }
 }
