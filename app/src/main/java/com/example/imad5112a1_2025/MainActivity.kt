@@ -11,26 +11,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
+        // Get references to UI elements in the layout
         val textView = findViewById<TextView>(R.id.textView)
         val editTextText = findViewById<EditText>(R.id.editTextText)
-        val button = findViewById<Button>(R.id.button)
-        val button2 = findViewById<Button>(R.id.button2)
+        val button = findViewById<Button>(R.id.button)       // Button to generate suggestion
+        val button2 = findViewById<Button>(R.id.button2)     // Button to reset message
 
-
-
-
+        // Set what happens when the "suggestion" button is clicked
         button?.setOnClickListener {
+            val string = editTextText.text.toString()  // Get user input from EditText
+            var result: String = ""                    // Initialize result string
 
-            val string = editTextText.text.toString()
-
-            var result: String = ""
-
-
-
-
-
+            // Determine suggestion based on input time
             if(string == "morning"){
                 result = "Eggs"
             } else if(string == "mid-morning") {
@@ -42,19 +34,15 @@ class MainActivity : AppCompatActivity() {
             } else if(string == "dinner") {
                 result = "Pasta"
             } else {
-                result = "Please enter a valid time."
+                result = "Please enter a valid option."  // Default message for invalid input
             }
 
-            textView.text = result
-
-
+            textView.text = result  // Show the result in the TextView
         }
 
-
+        // Set what happens when the "reset" button is clicked
         button2?.setOnClickListener {
-
-            textView.text = "Enter time to see suggestion"
-
+            textView.text = "Enter time to see suggestion"  // Reset TextView message
         }
     }
 }
